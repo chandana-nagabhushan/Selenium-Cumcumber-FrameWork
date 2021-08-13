@@ -1,0 +1,92 @@
+----------------------INSTRUCTIONS-----------------------------------
+
+
+PreRequist: 
+Install Cucumber plugin from Eclipse/IntelliJE MarketPLace
+
+
+
+Instruction to Run the File:
+
+1.Update project
+
+Right Click on your project maven > update project
+
+2.Build project
+
+Right Click on your project again. run as > Maven build
+
+ it will open a new configuration with some auto filled values.
+
+You can change the name. "Base directory" will be a auto filled value for you. Keep it as it is. Give maven command to ”Goals” fields.
+
+i.e, “clean install” for building purpose
+
+Click apply
+
+Click run.
+
+
+
+Test Reports:
+Reports are available in Target>index.html
+After execution please refresh the project and go to Target>index.html 
+To view report copy the Path and open it in browser 
+
+Ex :  path would be <usercurrentDir>/target/cucumber-reports/index.html
+
+
+---- IMPORTANT NOTE----
+In the  assignment  ,1st test case scenario  it was mentioned that expected  a borrowing estimate of $479,000 but when i  manually checked the amount was $507,000 so i have added expected results as $507,000  .
+
+-------------------------------------- QUSETIONS---------------------------------------
+
+QUESTION 1::What other tests would you suggest could be written? You do not need to write
+them out in detail or code them.
+
+Positive Cases 
+1)Check by ClicKing on 'Joint'  and ensure that other options are displayed.
+2)By changing the  Application type to Single from Joint 
+ie: i would first select joint as application type and enter values in input text box   specific to Join application
+And i would enter all the mandatory values and click on "Click on How much can i borrow'
+and now i would change the option from 'joint' to single now again "Click on How much can i borrow'  should be shown 
+3) Validate that when ever there is change in the input value,  button  "Click on How much can i borrow' should be shown
+4) Validate if mandatory fields are left blank then valid error message should be shown to the users
+5) validate UI display if its as per MOCK 
+6) check usability of the Application 
+
+Negative Cases
+1)I would check if the input filed allow negative value if yes i would check how the calculator would behave
+2) If the service goes down when user clicks on "Click on How much can i borrow'" system should display valid error message
+3) If there is network loss when user clicks on "Click on How much can i borrow'" system should display valid error message
+
+Corner Cases
+1)I would check by entering max allowed input in all the fields and see how the calculator would behave
+2) If the results datatype is integer i would enter input such that the results exceed max integer value and see how Calculator would respond
+
+
+QUESTION 2:If this test was part of a much larger test set, how would you speed it up?
+
+Flaky Test Identification: most of the time gets wasted  in analysing flaky scripts  so correcting test scripts to ensure that script fails for genuine reason
+
+Parallelisation: There are lot of parallelisation tools available in the market. 
+by using multiple VMs and test parallelisation tools like Selenium grid and Test Load Balancer(TLB), the execution time can be brought down drastically.
+
+Break the tests:Another way to quickly get feedback from tests is to run them in multiple categories. Break the tests into categories according to the functionality or by nature of the  tests
+
+Avoid adding  Waits :  
+I will try to consciously eliminate wait statements in  tests. Replace all generic wait statements with conditional waits (such as the wait for a page load to finish or an element to appear etc). 
+Conditional waits will then wait only for a specific action/event to occur and proceed with execution as soon as it's complete. 
+
+
+
+QUESTION 3:Sometimes UI tests can fail unpredictably. For example, the page may not have
+fully loaded before test automation attempts to click a button on a webpage. How
+would you improve reliability of these tests?
+
+> We could use javascript to wait until page is fully loaded
+> We can use explicit wait and check if  element  is visible before performing any action
+>in case of exception script execution  should not be stopped if there is  no dependency on that element/action for which exception is thrown.
+
+ 
+
